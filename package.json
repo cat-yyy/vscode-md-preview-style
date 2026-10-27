@@ -12,7 +12,7 @@
   "extensionKind": ["ui", "workspace"],
   "repository": {
     "type": "git",
-    "url": "https://example.invalid/md-preview-white"
+    "url": "https://github.com/cat-yyy/vscode-md-preview-style"
   },
   "contributes": {
     "markdown.previewStyles": [
