@@ -1,0 +1,440 @@
+/*
+ * Markdown Preview White
+ * VS Code のテーマ（ダーク/ライト）に関係なく、プレビューを白背景で読みやすく表示する。
+ * 色を変えたい場合は :root の変数を書き換える。
+ */
+
+:root {
+  --mp-bg: #ffffff;
+  --mp-fg: #1f2328;
+  --mp-muted: #59636e;
+  --mp-border: #d1d9e0;
+  --mp-border-light: #e8ecf0;
+  --mp-accent: #0969da;
+  --mp-accent-soft: #ddf4ff;
+  --mp-heading: #0d1117;
+  --mp-code-bg: #f6f8fa;
+  --mp-inline-code-bg: #eff1f3;
+  --mp-inline-code-fg: #c7254e;
+  --mp-table-head: #f0f3f6;
+  --mp-table-stripe: #f9fafb;
+  --mp-table-hover: #eef6ff;
+  --mp-mark: #fff3a3;
+
+  --mp-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+  --mp-mono: "Cascadia Code", Consolas, "SFMono-Regular", Menlo,
+    "BIZ UDGothic", monospace;
+}
+
+/* ---------- ベース ---------- */
+html,
+body,
+body.vscode-body,
+body.vscode-light,
+body.vscode-dark,
+body.vscode-high-contrast {
+  background-color: var(--mp-bg) !important;
+  color: var(--mp-fg) !important;
+}
+
+body {
+  font-family: var(--mp-font);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 32px 40px 80px;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+li {
+  color: var(--mp-fg);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+strong {
+  color: var(--mp-heading);
+  font-weight: 700;
+}
+
+em {
+  color: #3a4048;
+}
+
+del {
+  color: var(--mp-muted);
+}
+
+mark {
+  background: var(--mp-mark);
+  color: inherit;
+  padding: 0 0.2em;
+  border-radius: 3px;
+}
+
+hr {
+  height: 2px;
+  border: none;
+  background: var(--mp-border-light);
+  margin: 2.2em 0;
+}
+
+::selection {
+  background: #b6d7ff;
+}
+
+/* ---------- 見出し ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--mp-heading) !important;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 1.8em 0 0.8em;
+}
+
+h1 {
+  font-size: 2em;
+  padding-bottom: 0.3em;
+  border-bottom: 3px solid var(--mp-accent);
+}
+
+h2 {
+  font-size: 1.5em;
+  padding: 0.15em 0 0.25em 0.6em;
+  border-left: 6px solid var(--mp-accent);
+  border-bottom: 1px solid var(--mp-border);
+}
+
+h3 {
+  font-size: 1.25em;
+  padding-left: 0.5em;
+  border-left: 4px solid #8cc4ff;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.95em;
+  color: var(--mp-muted) !important;
+}
+
+body > h1:first-child,
+body > h2:first-child {
+  margin-top: 0.4em;
+}
+
+/* ---------- リンク ---------- */
+a,
+a:visited {
+  color: var(--mp-accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+a:hover {
+  border-bottom-color: var(--mp-accent);
+}
+
+/* ---------- リスト ---------- */
+ul,
+ol {
+  padding-left: 1.8em;
+  margin: 0 0 1em;
+}
+
+li + li {
+  margin-top: 0.25em;
+}
+
+li > ul,
+li > ol {
+  margin: 0.25em 0 0;
+}
+
+ul li::marker {
+  color: var(--mp-accent);
+}
+
+ol li::marker {
+  color: var(--mp-accent);
+  font-weight: 700;
+}
+
+/* タスクリスト */
+.contains-task-list {
+  padding-left: 0.6em;
+}
+
+.task-list-item {
+  list-style: none;
+}
+
+.task-list-item input[type="checkbox"] {
+  margin-right: 0.5em;
+  accent-color: var(--mp-accent);
+  transform: scale(1.15);
+}
+
+/* ---------- 引用 ---------- */
+blockquote {
+  margin: 1.2em 0;
+  padding: 0.8em 1.2em;
+  color: #3d444d !important;
+  background: #f6f8fa !important;
+  border-left: 5px solid #9aa7b4 !important;
+  border-radius: 0 6px 6px 0;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- コード ---------- */
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--mp-mono) !important;
+}
+
+:not(pre) > code {
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  margin: 0 0.1em;
+  color: var(--mp-inline-code-fg) !important;
+  background: var(--mp-inline-code-bg) !important;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--mp-code-bg) !important;
+  border: 1px solid var(--mp-border);
+  border-radius: 8px;
+  padding: 14px 18px !important;
+  overflow: auto;
+  line-height: 1.55;
+  font-size: 0.88em;
+  margin: 0 0 1.2em;
+}
+
+pre code,
+pre code div {
+  color: var(--mp-fg) !important;
+  background: transparent !important;
+  padding: 0;
+  font-size: 1em;
+  white-space: pre;
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.1em 0.45em;
+  font-size: 0.85em;
+  color: var(--mp-fg);
+  background: #f6f8fa;
+  border: 1px solid var(--mp-border);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+/* シンタックスハイライト (highlight.js / GitHub Light 風) */
+.hljs-comment,
+.hljs-quote {
+  color: #6e7781 !important;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-doctag,
+.hljs-template-tag,
+.hljs-type,
+.hljs-meta .hljs-keyword {
+  color: #cf222e !important;
+}
+
+.hljs-string,
+.hljs-regexp,
+.hljs-meta .hljs-string,
+.hljs-addition {
+  color: #0a3069 !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attr,
+.hljs-attribute,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: #0550ae !important;
+}
+
+.hljs-title,
+.hljs-title.function_,
+.hljs-section {
+  color: #8250df !important;
+}
+
+.hljs-title.class_,
+.hljs-built_in,
+.hljs-symbol {
+  color: #953800 !important;
+}
+
+.hljs-name,
+.hljs-tag,
+.hljs-selector-pseudo {
+  color: #116329 !important;
+}
+
+.hljs-meta,
+.hljs-params,
+.hljs-subst {
+  color: var(--mp-fg) !important;
+}
+
+.hljs-deletion {
+  color: #82071e !important;
+  background: #ffebe9 !important;
+}
+
+.hljs-addition {
+  background: #dafbe1 !important;
+}
+
+.hljs-bullet,
+.hljs-link {
+  color: #0550ae !important;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+/* ---------- テーブル ---------- */
+table {
+  display: table;
+  width: auto;
+  max-width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  margin: 1.2em 0 1.6em;
+  font-size: 0.94em;
+  line-height: 1.6;
+  border: 1px solid var(--mp-border) !important;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(31, 35, 40, 0.06);
+}
+
+table th,
+table td {
+  padding: 8px 14px !important;
+  border: none !important;
+  border-bottom: 1px solid var(--mp-border-light) !important;
+  color: var(--mp-fg) !important;
+  vertical-align: top;
+}
+
+table th + th,
+table td + td {
+  border-left: 1px solid var(--mp-border-light) !important;
+}
+
+table thead th {
+  background: var(--mp-table-head) !important;
+  color: var(--mp-heading) !important;
+  font-weight: 700;
+  border-bottom: 2px solid var(--mp-border) !important;
+  white-space: nowrap;
+}
+
+table tbody tr {
+  background: var(--mp-bg) !important;
+}
+
+table tbody tr:nth-child(even) {
+  background: var(--mp-table-stripe) !important;
+}
+
+table tbody tr:hover {
+  background: var(--mp-table-hover) !important;
+}
+
+table tbody tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* ---------- 画像 ---------- */
+img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+/* ---------- 脚注 ---------- */
+.footnotes {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid var(--mp-border);
+  font-size: 0.88em;
+  color: var(--mp-muted);
+}
+
+/* ---------- GitHub 形式アラート (> [!NOTE] など) ---------- */
+.markdown-alert {
+  padding: 0.6em 1em;
+  margin: 1.2em 0;
+  border-left: 5px solid var(--mp-accent);
+  border-radius: 0 6px 6px 0;
+  background: var(--mp-accent-soft);
+}
+
+.markdown-alert-tip { border-left-color: #1a7f37; background: #dafbe1; }
+.markdown-alert-important { border-left-color: #8250df; background: #fbefff; }
+.markdown-alert-warning { border-left-color: #9a6700; background: #fff8c5; }
+.markdown-alert-caution { border-left-color: #cf222e; background: #ffebe9; }
+
+/* ---------- Mermaid などの埋め込み ---------- */
+.mermaid {
+  background: var(--mp-bg) !important;
+}
+
+/* スクロール同期時のハイライト行を目立たせすぎない */
+.code-line.code-active-line::before {
+  border-left-color: rgba(9, 105, 218, 0.35) !important;
+}
+
+/* ---------- 印刷 ---------- */
+@media print {
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  table {
+    box-shadow: none;
+  }
+}

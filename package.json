@@ -1,0 +1,22 @@
+{
+  "name": "md-preview-white",
+  "displayName": "Markdown Preview White",
+  "description": "Markdownプレビューを白背景・読みやすい装飾に統一するスタイル",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Themes"],
+  "extensionKind": ["ui", "workspace"],
+  "repository": {
+    "type": "git",
+    "url": "https://example.invalid/md-preview-white"
+  },
+  "contributes": {
+    "markdown.previewStyles": [
+      "./styles/preview.css"
+    ]
+  }
+}
